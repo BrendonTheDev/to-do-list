@@ -16,12 +16,13 @@
         <div class="main">
           <div class="side-bar">
             <h2>Projects</h2>
-            <ul class="project-list" data-project-container>
+            <ul class="project-container" data-project-container>
               
             </ul>
             <form action="" data-new-project-form>
               <input type="text" class="new project" data-new-project-input placeholder="New Project Name" aria-label="new project name">
               <button class="btn create" aria-label="create new project">+ Create New Project</button>
+              <button class="btn delete" data-delete-project-button>Delete Project</button>
             </form>
            
           </div>
@@ -32,10 +33,10 @@
             <div class="task-container">
                
             </div>
-            <button class="add-task-btn">+ Add Task</button>
-             
+            <button class="btn create" aria-label="create new task">+ Add Task</button>
+            <button class="btn delete">Delete Task</button>
             <!-- pop-pop modal accepts user input -->
-            <dialog class="modal">
+            <!-- <dialog class="modal">
               <h2>What to do today?</h2>
               
                 <label for="title">Title</label>
@@ -56,7 +57,7 @@
               <button class="submit-task-btn" type="submit">Submit</button>
               
           </dialog>
-            
+             -->
           </div>
         </div>
       </div>

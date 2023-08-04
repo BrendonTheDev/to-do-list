@@ -85,3 +85,13 @@ button {
 .submit-task-btn {
   margin-top: 5px;
 }
+
+.project-name {
+  cursor: pointer;
+}
+
+.active-project {
+  color: deeppink;
+  font-weight: bolder;
+  background-color: burlywood;
+}
