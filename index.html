@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <h1>To-Do List</h1>
+        </div>
+        <div class="main">
+          <div class="side-bar">
+            <h2>Projects</h2>
+            <ul class="project-list" data-project-container>
+              
+            </ul>
+            <form action="" data-new-project-form>
+              <input type="text" class="new project" data-new-project-input placeholder="New Project Name" aria-label="new project name">
+              <button class="btn create" aria-label="create new project">+ Create New Project</button>
+            </form>
+           
+          </div>
+            
+          <div class="to-do-area">
+            <h2>To-Do List</h2>
+
+            <div class="task-container">
+               
+            </div>
+            <button class="add-task-btn">+ Add Task</button>
+             
+            <!-- pop-pop modal accepts user input -->
+            <dialog class="modal">
+              <h2>What to do today?</h2>
+              
+                <label for="title">Title</label>
+              <input class="modal-item" type="text" name="title" placeholder="Task Title">
+
+              <label for="description">Description</label>
+              <input class="modal-item" type="text" name="description" placeholder="Describe the task">
+
+              <label for="date">Due Date</label>
+              <input class="modal-item" type="date" name="date">
+
+              <label for="dropdown">Priority</label>
+              <select class="modal-item" name="dropdown" id="dropdown">
+                <option class="low priority" value="low">Low</option>
+                <option class="medium priority" value="medium">Medium</option>
+                <option class="high priority" value="high">High</option>
+              </select>
+              <button class="submit-task-btn" type="submit">Submit</button>
+              
+          </dialog>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer type="module" src="/main.js"></script>
+  </body>
+</html>

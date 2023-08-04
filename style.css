@@ -1,0 +1,87 @@
+/* modern CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+
+.header {
+  background-color: aqua;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgrey;
+}
+
+.side-bar {
+   display: flex;
+   flex-direction: column;
+   width: 20%;
+   height: 100vh;
+   background-color: blanchedalmond;
+   padding: 12px;
+}
+
+button {
+  
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 16px;
+  height: 32px;
+  min-width: 60px;
+  min-height: 32px;
+  border: none;
+  color: #fff;
+  background-color: #4f545c;
+  transition: background-color .17s ease,color .17s ease;
+  margin: 5px 0 5px 0;
+}
+
+.to-do-area {
+  width: 80%;
+  height: 100vh;
+  background-color: lightcoral;
+}
+
+.modal {
+  padding: 1em; 
+  display: flex;
+  flex-direction: column;
+  max-width: 300ch;
+  
+}
+
+.modal-item {
+  margin: 2px 0 2px 0;
+  cursor: pointer;
+}
+
+.submit-task-btn {
+  margin-top: 5px;
+}
