@@ -1,8 +1,14 @@
-// 1. Access html and store and ad vars to use in JS
+// 1. Access html from Project section
 const projectContainer = document.querySelector('[data-project-container]');
 const newProjectForm = document.querySelector('[data-new-project-form]');
 const newProjectInput = document.querySelector('[data-new-project-input]');
 const deleteProjectButton = document.querySelector('[data-delete-project-button]');
+
+// 1. Access html from Tasks section
+const taskDisplayContainer = document.querySelector('[data-task-display-container]');
+const taskTitle = document.querySelector('[data-task-title]');
+const taskCount = document.querySelector('[data-task-count]');
+const tasksContainer = document.querySelector('[data-tasks]');
 
 // 1. Local Storage keys
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects"

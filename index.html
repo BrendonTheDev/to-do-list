@@ -26,15 +26,58 @@
             </form>
            
           </div>
-            
-          <div class="to-do-area">
-            <h2>To-Do List</h2>
+          <div class="task-container">
+           
 
-            <div class="task-container">
+            <div class="task-display" data-task-display-container>
+              <div class="task-header">
+                 <h2 class="task-title" data-task-title>To-Do List</h2>
+                 <p class="task-count" data-task-count>3 Tasks Remaining</p>
+                </div>
+
+                 <div class="todo-body">
+                  <div class="tasks" data-tasks>
+                    <div class="task">
+                      <input type="checkbox" id="task-1">
+                      <label for="task-1">
+                        <span class="custom-checkbox"></span>
+                        Finish Todo List Project
+                      </label>
+                    </div>
+                    <!-- end task one -->
+
+                    <div class="task">
+                      <input type="checkbox" id="task-2">
+                      <label for="task-2">
+                        <span class="custom-checkbox"></span>
+                        Call Course Instructor
+                      </label>
+                    </div>
+
+                    <!-- end task two -->
+
+                    <div class="task">
+                      <input type="checkbox" id="task-3">
+                      <label for="task-3">
+                        <span class="custom-checkbox"></span>
+                        Order wood stain and sealer
+                      </label>
+                    </div>
+
+                     <!-- end task three -->
+                  </div>
+                 </div>
+              
                
             </div>
-            <button class="btn create" aria-label="create new task">+ Add Task</button>
-            <button class="btn delete">Delete Task</button>
+            <form action="" data-new-task-form>
+              <input type="text" class="new task" data-new-task-input placeholder="New Task Name" aria-label="new task name">
+              <button class="btn create" aria-label="create new task">+ Add Task</button>
+              <button class="btn delete" data-delete-task-button>Delete Task</button>
+            </form>
+            
+            
+          
             <!-- pop-pop modal accepts user input -->
             <!-- <dialog class="modal">
               <h2>What to do today?</h2>
