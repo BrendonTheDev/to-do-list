@@ -9,6 +9,9 @@ const taskDisplayContainer = document.querySelector('[data-task-display-containe
 const taskTitle = document.querySelector('[data-task-title]');
 const taskCount = document.querySelector('[data-task-count]');
 const tasksContainer = document.querySelector('[data-tasks]');
+const taskTemplate = document.querySelector('#task-template');
+const taskForm = document.querySelector('[data-new-task-form]');
+const taskInput = document.querySelector('[data-new-task-input]')
 
 // 1. Local Storage keys
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects"
@@ -51,16 +54,32 @@ newProjectForm.addEventListener('submit', e => {
     saveAndRender()
 })
 
+// <-- NEEDS COMMENT -->
+taskForm.addEventListener('submit', e => {
+  e.preventDefault()
+  const taskName = taskInput.value
+  if (taskName == null || taskName === '') return
+  const task = createTask(taskName)
+  taskInput.value = null
+  const selectedProject = projects.find(project => project.id === selectedProjectId)
+  selectedProject.tasks.push(task)
+  saveAndRender()
+})
+
 // 1. Takes in projectName from input and creates obj 2. Project ID is randomly generated
 // 3. Name prop tasks are assigned from input
 function createProject(name) {
   return { id: Date.now().toString(), name: name, tasks: [] }
 }
 
+function createTask(name) {
+  return { id: Date.now().toString(), name: name, complete: false }
+}
+
 // 1. Calls save and Render functions
 function saveAndRender() {
   save()
-  renderProject()
+  render()
 }
 
 // 1. Using local storage key , passes value of key and saves projects to local storage as JSON string. 
@@ -70,12 +89,60 @@ function save() {
 }
 
 
-// 1. Clears the ulContainer                         2. ForEach project in Projects array create a list DOM elem
-// 2. Acceess and add id to the elem using .notation 3. Add class to Elem
-// 4. Add project name from prop.value to innerText  5. If project.id equals selected id add class active-project
-// 6. Append newly created <li> to the ul projectContainer
-function renderProject() {
+// 1. Clear project Container 2. Call function to Render the Projects List with select functionality
+// 3. If no project is selected display no tasks section 4. If a project is selected, display the project and
+// assign the innerText of the taskTitle to the selected Project name. 
+function render() {
   clearElement(projectContainer)  
+  renderProjects()
+  const selectedProject = projects.find(project => project.id === selectedProjectId)
+  if (selectedProjectId == null) {
+    taskDisplayContainer.style.display = 'none'
+  } else {
+    taskDisplayContainer.style.display = ''
+    taskTitle.innerText = selectedProject.name
+    renderTaskCount(selectedProject)
+    clearElement(tasksContainer)
+    renderTasks(selectedProject)
+  }
+}
+
+// <--- Uses template to render task --->
+
+// 1. For each task in the selected project 2. import the content of the template
+// 3. Get a checkbox with querySeletor 4. Assign task id to checkbox 
+//5. Assign checked from task complete  6. get labal with query assign the for to task.id.
+//7. Append the task.name to the label name 
+// 8.append the created task element "checkbox and label" to tasks Container
+  function renderTasks(selectedProject) {
+    selectedProject.tasks.forEach(task => {
+      const taskElement = document.importNode(taskTemplate.content, true)
+      const checkbox = taskElement.querySelector('input')
+      checkbox.id = task.id
+      checkbox.checked = task.complete
+      const label = taskElement.querySelector('label')
+      label.htmlFor = task.id
+      label.append(task.name)
+      tasksContainer.appendChild(taskElement)
+    })
+  }
+
+  // 1. Take in selected project as argument
+  // 2. Filter the selectedProject tasks for incomplete tasks and count how many are incomplete
+  // 3. If 1 incomplete task string is "task" else is "tasks"
+  // 4. Assign inner text of taskcount to number of incomplete + task/tasks + "remaining"
+ function renderTaskCount(selectedProject) {
+    const incompleteTaskCount = selectedProject.tasks.filter(task => !task.complete).length
+    const taskString = incompleteTaskCount === 1 ? "task" : "tasks"
+    taskCount.innerText = `${incompleteTaskCount} ${taskString} remaining`
+ }
+
+
+
+//For each projects in project 1. create an li elem 2. assign it a project.id, 3. add a class of project-name
+// 4. set the inner text to the project name 5. If it is the selected project add the class of active-project
+// 6. append to the project container. 
+function renderProjects() {
   projects.forEach(project => {
     const listElement = document.createElement('li')
     // check if projectId needs to be listId
@@ -96,8 +163,8 @@ function clearElement(element) {
   }
 }
 
-// 1. call renderProject function 
-renderProject()
+// 1. call render function 
+render()
 
 
 
