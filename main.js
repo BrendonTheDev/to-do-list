@@ -11,7 +11,9 @@ const taskCount = document.querySelector('[data-task-count]');
 const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.querySelector('#task-template');
 const taskForm = document.querySelector('[data-new-task-form]');
-const taskInput = document.querySelector('[data-new-task-input]')
+const taskInput = document.querySelector('[data-new-task-input]');
+const clearAllCompleted = document.querySelector('[data-clear-completed-button]');
+
 
 // 1. Local Storage keys
 const LOCAL_STORAGE_PROJECT_KEY = "task.projects"
@@ -30,6 +32,28 @@ projectContainer.addEventListener('click', e => {
         selectedProjectId = e.target.dataset.projectId
         saveAndRender()
     }
+})
+
+// Logic for checking box and setting complete to checked
+// Makes tasks incomplete function accurate to how many tasks are 'unchecked'
+tasksContainer.addEventListener('click', e => {
+  if (e.target.tagName.toLowerCase() === 'input') {
+    const selectedProject = projects.find(project => project.id === selectedProjectId)
+    const selectedTask = selectedProject.tasks.find(task => task.id === e.target.id)
+    selectedTask.complete = e.target.checked
+    save()
+    renderTaskCount(selectedProject)
+  }
+})
+
+
+// 1. on click event  2. Find the selected project 
+// 3. overwrite selected project tasks with filter to only include tasks that are not complete.
+// 4. save and render 
+clearAllCompleted.addEventListener('click', e => {
+  const selectedProject = projects.find(project => project.id === selectedProjectId)
+  selectedProject.tasks = selectedProject.tasks.filter(task => !task.complete)
+  saveAndRender()
 })
 
 // 1. OnClick Filter to return all projects that are not selected
