@@ -1,4 +1,4 @@
-# To-Do-List Application
+# To-Do-List Application 📝
 
 ## Demo
 [Try the live app here!](https://brendonthedev.github.io/to-do-list/)
