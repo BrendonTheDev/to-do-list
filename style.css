@@ -76,11 +76,13 @@ button {
   background-color: var(--cool-gray);
   transition: background-color .17s ease,color .17s ease;
   margin: 5px 0 5px 0;
+  
 }
 
 input {
   font-family: 'Gloria Hallelujah', cursive;
   cursor: pointer;
+ 
 }
 
 .task-container{

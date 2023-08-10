@@ -2,6 +2,7 @@
 
 ## Demo
 [Try the live app here!](https://brendonthedev.github.io/to-do-list/)
+![Preview of my To-Do App](../to-do-list/public/to-doPreview.png)
 
 ## About this project
 The objective of this project was to create a project/task management application. The user is able to switch between multiple projects,
