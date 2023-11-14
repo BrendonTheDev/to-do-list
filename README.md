@@ -44,7 +44,7 @@ When I first deployed the project on GitHub Pages the starting UI of the applica
 I browsed GitHub's documentation on Staging and Production Server and Configuring A Public Source.
 I also  found a blog post that was more concise and specific to deploying a build with Vite. - "I created the project with Vite from the beginning but did not know how to deploy it until now."
 A few commands in the terminal and some basic config of my package.json and vite.config.js file and the application worked as intended on GitHub Pages. 
-To ensure everything works as itended for other users, I had my wife try the App from her MacBook on both Safari and Chrome and it worked!
+To ensure everything works as intended for other users, I had my wife try the App from her MacBook on both Safari and Chrome and it worked!
 
 ## What I Learned
 
@@ -52,7 +52,7 @@ To ensure everything works as itended for other users, I had my wife try the App
 
 -Thinking about and understanding the bigger picture of how objects, functions, event listeners work together to dynamically render the UI
 
--User input => Data Structures =>  Events => Funtions => User Output
+-User input => Data Structures =>  Events => Functions => User Output
 
 -Comments and Documentation
 
